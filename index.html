@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>Ujan Grievance Box</title>
+  <style>
+    body {
+      font-family: "Press Start 2P", cursive;
+      background: url('bg.jpeg');
+      background-size: cover;
+      color: #9b6767;
+      padding: 2rem;
+      text-shadow: 1px 1px #000;
+      max-width: 100%;
+      margin: 0;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    h1 {
+      color: #00ff00;
+      font-size: 1.5rem;
+      text-align: center;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 1rem;
+      border: 4px solid #228B22;
+      box-shadow: 0 0 20px #00ff00;
+      margin-bottom: 1rem;
+    }
+    form {
+      max-width: 600px;
+      margin: 0 auto;
+      background: rgba(0,0,0,0.4);
+      padding: 1rem 1.5rem 1.5rem 1.5rem;
+      border: 3px solid #228B22;
+      border-radius: 8px;
+      box-shadow: 0 0 15px #00ff00;
+    }
+    label {
+      display: block;
+      margin: 1rem 0 0.5rem;
+      font-size: 0.85rem;
+    }
+    textarea, input {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 0;
+      border: 2px solid #654321;
+      background: #333;
+      color: #fff;
+      font-family: inherit;
+      font-size: 1rem;
+      resize: vertical;
+      min-height: 50px;
+      box-sizing: border-box;
+    }
+    textarea {
+      min-height: 80px;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.7rem;
+      background: #8B4513;
+      color: white;
+      border: 3px solid #000;
+      font-family: inherit;
+      cursor: pointer;
+      box-shadow: 2px 2px 0 #000;
+      font-size: 1rem;
+      width: 100%;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #a0522d;
+    }
+    .disclaimer {
+      font-size: 0.7rem;
+      margin-top: 1rem;
+      color: #ccc;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 0.5rem;
+      border-left: 5px solid #00ff00;
+    }
+    #thankYouMessage {
+      display: none;
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #00ff00;
+      text-shadow: 1px 1px #000;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 1rem;
+      border: 3px solid #228B22;
+      background: rgba(0,0,0,0.5);
+      border-radius: 8px;
+      box-shadow: 0 0 15px #00ff00;
+    }
+
+    /* Responsive tweaks */
+    @media (max-width: 640px) {
+      body {
+        padding: 1rem 0.5rem;
+      }
+      h1 {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+        border-width: 3px;
+      }
+      form {
+        padding: 1rem 1rem 1.2rem 1rem;
+        border-width: 2px;
+      }
+      label {
+        font-size: 0.8rem;
+      }
+      button {
+        font-size: 1rem;
+      }
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>🟩 Ujan Grievance Block</h1>
+  <form id="grievanceForm" action="https://docs.google.com/forms/d/e/1FAIpQLScu_XJkKwX2-tMpxUNJIceKaKXGmfSEW3Gj78CHUTwSECSeDw/formResponse" method="POST" target="hidden_iframe" onsubmit="return handleSubmit()">
+    <label for="entry.1780480500">What's your grievance?</label>
+    <textarea name="entry.1780480500" required></textarea>
+
+    <label for="entry.780346360">What should Ujan do to fix it?</label>
+    <textarea name="entry.780346360"></textarea>
+
+    <label for="entry.1182433884">What made it annoying?</label>
+    <textarea name="entry.1182433884"></textarea>
+
+    <label for="entry.95897042">Your name (Optional, it's anonymous 😉)</label>
+    <input type="text" name="entry.95897042" />
+
+    <button type="submit">Submit to the Nether</button>
+    <div class="disclaimer">This is 100% anonymous. Definitely not secretly recording your device info 😇</div>
+  </form>
+
+  <div id="thankYouMessage">Thanks for not keeping your opinion to yourself..ujan will see it..maybe..lol </div>
+
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="iframeLoaded()"></iframe>
+
+  <script>
+    let submitted = false;
+
+    function handleSubmit() {
+      submitted = true;
+      return true; // allow submission
+    }
+
+    function iframeLoaded() {
+      if (submitted) {
+        document.getElementById('grievanceForm').style.display = 'none';
+        document.getElementById('thankYouMessage').style.display = 'block';
+        submitted = false; // reset for next time
+      }
+    }
+  </script>
+</body>
+</html>
